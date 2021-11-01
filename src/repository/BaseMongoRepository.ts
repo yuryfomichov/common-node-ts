@@ -5,7 +5,7 @@ import { BaseRepository } from "./BaseRepository";
 export abstract class BaseMongoRepository<T extends mongoose.Document>
   implements BaseRepository<T>
 {
-  model: mongoose.Model<T>;
+  private model: mongoose.Model<T>;
 
   constructor(name: string, schema: mongoose.Schema<T>) {
     this.model = mongoose.model<T, mongoose.Model<T>>(name, schema);
@@ -26,7 +26,8 @@ export abstract class BaseMongoRepository<T extends mongoose.Document>
     throw new Error("Method not implemented.");
   }
   findById(id: string): Promise<T> {
-    throw new Error("Method not implemented.");
+    // @ts-ignore
+    return this.model.findById(id);
   }
   findByIds(ids: string[]): Promise<T> {
     throw new Error("Method not implemented.");
