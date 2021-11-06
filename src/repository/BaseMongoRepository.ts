@@ -30,7 +30,8 @@ export abstract class BaseMongoRepository<T extends mongoose.Document, U>
     return this.model.findByIdAndDelete(id);
   }
   findOne(conditions: T): Promise<T[]> {
-    throw new Error("Method not implemented.");
+    // @ts-ignore
+    return this.model.findOne(conditions);
   }
   findById(id: string): Promise<T> {
     // @ts-ignore
