@@ -15,7 +15,7 @@ export abstract class BaseRepository<T> implements IWrite<T>, IRead<T> {
   delete(id: string): Promise<boolean> {
     throw new Error("Method not implemented.");
   }
-  findOne(conditions: T): Promise<T[]> {
+  findOne(conditions: any): Promise<T[]> {
     throw new Error("Method not implemented.");
   }
   findById(id: string): Promise<T> {

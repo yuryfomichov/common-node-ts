@@ -29,7 +29,7 @@ export abstract class BaseMongoRepository<T extends mongoose.Document, U>
     // @ts-ignore
     return this.model.findByIdAndDelete(id);
   }
-  findOne(conditions: T): Promise<T[]> {
+  findOne(conditions: mongoose.FilterQuery<T>): Promise<T[]> {
     // @ts-ignore
     return this.model.findOne(conditions);
   }
