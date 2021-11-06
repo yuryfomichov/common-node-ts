@@ -1,6 +1,6 @@
 export interface IWrite<T> {
   create(item: T): Promise<T>;
   createMany(item: T[]): Promise<T[]>;
-  update(id: string, item: T): Promise<boolean>;
+  update(item: T): Promise<boolean>;
   delete(id: string): Promise<boolean>;
 }
