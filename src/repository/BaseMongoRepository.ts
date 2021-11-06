@@ -29,7 +29,7 @@ export abstract class BaseMongoRepository<T extends mongoose.Document, U>
     // @ts-ignore
     return this.model.findByIdAndDelete(id);
   }
-  findOne(conditions: mongoose.FilterQuery<T>): Promise<T[]> {
+  findOne(conditions: mongoose.FilterQuery<T>): Promise<T> {
     // @ts-ignore
     return this.model.findOne(conditions);
   }
@@ -37,7 +37,7 @@ export abstract class BaseMongoRepository<T extends mongoose.Document, U>
     // @ts-ignore
     return this.model.findById(id);
   }
-  findByIds(ids: string[]): Promise<T> {
+  findByIds(ids: string[]): Promise<T[]> {
     // @ts-ignore
     return this.model.find().where("_id").in(ids);
   }
